@@ -207,7 +207,7 @@ export default function Tube() {
                 exit="exit"
                 className="border-l-2 border-red-500 w-full px-6 sm:px-8 h-[400px] sm:h-[500px] lg:h-[620px] overflow-y-scroll custom-scroll"
               >
-                {comments.slice(0, 20).map((msg) => (
+                {comments.map((msg) => (
                   <motion.div
                     key={msg.id}
                     variants={commentVariants}
