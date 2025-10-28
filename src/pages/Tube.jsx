@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Swal from "sweetalert2";
 import { AnimatePresence, motion } from "framer-motion";
+import axios from "axios";
 
 const StyledWrapper = styled.div`
   .button {
@@ -117,11 +118,10 @@ export default function Tube() {
   useEffect(() => {
     async function loadComments() {
       try {
-        const res = await fetch(
+        const res = await axios.get(
           "https://jsonplaceholder.typicode.com/comments"
         );
-        const data = await res.json();
-        setComments(data);
+        setComments(res.data);
       } catch (err) {
         setError(err);
       }
